@@ -2,7 +2,10 @@ package net.masik.morearmortrims.util;
 
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.masik.morearmortrims.item.ModItems;
-import net.minecraft.advancements.criterion.*;
+import net.minecraft.advancements.predicates.LocationPredicate;
+import net.minecraft.advancements.predicates.StatePropertiesPredicate;
+import net.minecraft.advancements.predicates.entity.EntityPredicate;
+import net.minecraft.advancements.predicates.entity.EntityTypePredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
@@ -11,6 +14,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.clock.WorldClock;
 import net.minecraft.world.clock.WorldClocks;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
@@ -76,7 +80,7 @@ public class ModLootTableModifiers {
                         .add(LootItem.lootTableItem(ModItems.RAM_ARMOR_TRIM_SMITHING_TEMPLATE))
                         .when(LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS,
                                 EntityPredicate.Builder.entity().vehicle(
-                                        EntityPredicate.Builder.entity().entityType(EntityTypePredicate.of(null, EntityType.RAVAGER)))))
+                                        EntityPredicate.Builder.entity().entityType(EntityTypePredicate.of(null, EntityTypes.RAVAGER)))))
                         .when(LootItemKilledByPlayerCondition.killedByPlayer());
                 builder.pool(lootPool.build());
             }
@@ -85,7 +89,7 @@ public class ModLootTableModifiers {
                         .add(LootItem.lootTableItem(ModItems.RAM_ARMOR_TRIM_SMITHING_TEMPLATE))
                         .when(LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS,
                                 EntityPredicate.Builder.entity().passenger(
-                                        EntityPredicate.Builder.entity().entityType(EntityTypePredicate.of(null, EntityType.EVOKER)))))
+                                        EntityPredicate.Builder.entity().entityType(EntityTypePredicate.of(null, EntityTypes.EVOKER)))))
                         .when(LootItemKilledByPlayerCondition.killedByPlayer());
                 builder.pool(lootPool.build());
             }
@@ -104,7 +108,7 @@ public class ModLootTableModifiers {
                         .add(LootItem.lootTableItem(ModItems.PARASITE_ARMOR_TRIM_SMITHING_TEMPLATE))
                         .when(LootItemRandomChanceCondition.randomChance(0.2f))
                         .when(LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.ATTACKER,
-                                EntityPredicate.Builder.entity().entityType(EntityTypePredicate.of(null, EntityType.ENDERMAN))));
+                                EntityPredicate.Builder.entity().entityType(EntityTypePredicate.of(null, EntityTypes.ENDERMAN))));
                 builder.pool(lootPool.build());
             }
 
