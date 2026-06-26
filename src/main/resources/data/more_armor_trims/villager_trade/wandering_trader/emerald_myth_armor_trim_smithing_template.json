@@ -1,0 +1,11 @@
+{
+  "gives": {
+    "id": "more_armor_trims:myth_armor_trim_smithing_template"
+  },
+  "max_uses": 2.0,
+  "reputation_discount": 0.05,
+  "wants": {
+    "count": 15.0,
+    "id": "minecraft:emerald"
+  }
+}

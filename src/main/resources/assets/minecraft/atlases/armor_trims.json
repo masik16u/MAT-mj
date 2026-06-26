@@ -1,0 +1,54 @@
+{
+  "sources": [
+    {
+      "type": "paletted_permutations",
+      "palette_key": "minecraft:trims/color_palettes/trim_palette",
+      "permutations": {
+        "amethyst": "minecraft:trims/color_palettes/amethyst",
+        "copper": "minecraft:trims/color_palettes/copper",
+        "copper_darker": "minecraft:trims/color_palettes/copper_darker",
+        "diamond": "minecraft:trims/color_palettes/diamond",
+        "diamond_darker": "minecraft:trims/color_palettes/diamond_darker",
+        "emerald": "minecraft:trims/color_palettes/emerald",
+        "gold": "minecraft:trims/color_palettes/gold",
+        "gold_darker": "minecraft:trims/color_palettes/gold_darker",
+        "iron": "minecraft:trims/color_palettes/iron",
+        "iron_darker": "minecraft:trims/color_palettes/iron_darker",
+        "lapis": "minecraft:trims/color_palettes/lapis",
+        "netherite": "minecraft:trims/color_palettes/netherite",
+        "netherite_darker": "minecraft:trims/color_palettes/netherite_darker",
+        "quartz": "minecraft:trims/color_palettes/quartz",
+        "redstone": "minecraft:trims/color_palettes/redstone",
+        "resin": "minecraft:trims/color_palettes/resin"
+      },
+      "textures": [
+		"more_armor_trims:trims/entity/humanoid/storm",
+        "more_armor_trims:trims/entity/humanoid_leggings/storm",
+		"more_armor_trims:trims/entity/humanoid/ram",
+        "more_armor_trims:trims/entity/humanoid_leggings/ram",
+		"more_armor_trims:trims/entity/humanoid/myth",
+        "more_armor_trims:trims/entity/humanoid_leggings/myth",
+        "more_armor_trims:trims/entity/humanoid/greed",
+        "more_armor_trims:trims/entity/humanoid_leggings/greed",
+        "more_armor_trims:trims/entity/humanoid/beast",
+        "more_armor_trims:trims/entity/humanoid_leggings/beast",
+        "more_armor_trims:trims/entity/humanoid/fever",
+        "more_armor_trims:trims/entity/humanoid_leggings/fever",
+        "more_armor_trims:trims/entity/humanoid/wraith",
+        "more_armor_trims:trims/entity/humanoid_leggings/wraith",
+        "more_armor_trims:trims/entity/humanoid/nihility",
+        "more_armor_trims:trims/entity/humanoid_leggings/nihility",
+        "more_armor_trims:trims/entity/humanoid/horizon",
+        "more_armor_trims:trims/entity/humanoid_leggings/horizon",
+        "more_armor_trims:trims/entity/humanoid/origin",
+        "more_armor_trims:trims/entity/humanoid_leggings/origin",
+        "more_armor_trims:trims/entity/humanoid/twilight",
+        "more_armor_trims:trims/entity/humanoid_leggings/twilight",
+        "more_armor_trims:trims/entity/humanoid/parasite",
+        "more_armor_trims:trims/entity/humanoid_leggings/parasite",
+        "more_armor_trims:trims/entity/humanoid/witness",
+        "more_armor_trims:trims/entity/humanoid_leggings/witness"
+      ]
+    }
+  ]
+}
