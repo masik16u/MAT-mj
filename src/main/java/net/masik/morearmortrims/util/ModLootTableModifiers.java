@@ -2,11 +2,14 @@ package net.masik.morearmortrims.util;
 
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.masik.morearmortrims.item.ModItems;
-import net.minecraft.advancements.predicates.LocationPredicate;
-import net.minecraft.advancements.predicates.StatePropertiesPredicate;
+import net.minecraft.advancements.predicates.*;
 import net.minecraft.advancements.predicates.entity.EntityPredicate;
 import net.minecraft.advancements.predicates.entity.EntityTypePredicate;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.component.DataComponentExactPredicate;
+import net.minecraft.core.component.DataComponentType;
+import net.minecraft.core.component.predicates.DataComponentPredicates;
+import net.minecraft.core.component.predicates.EnchantmentsPredicate;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
@@ -15,6 +18,7 @@ import net.minecraft.world.clock.WorldClock;
 import net.minecraft.world.clock.WorldClocks;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EntityTypes;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
@@ -116,6 +120,12 @@ public class ModLootTableModifiers {
                 LootPool.Builder lootPool = LootPool.lootPool()
                         .add(LootItem.lootTableItem(ModItems.WITNESS_ARMOR_TRIM_SMITHING_TEMPLATE))
                         .when(LootItemRandomChanceCondition.randomChance(0.2f))
+                        .when(InvertedLootItemCondition.invert(MatchTool.toolMatches(ItemPredicate.Builder.item()
+                                .withComponents(DataComponentMatchers.Builder.components()
+                                        .partial(DataComponentPredicates.ENCHANTMENTS,
+                                                EnchantmentsPredicate.enchantments(List.of(new EnchantmentPredicate(
+                                                        provider.getOrThrow(ResourceKey.create(Registries.ENCHANTMENT, Enchantments.SILK_TOUCH.identifier())), MinMaxBounds.Ints.ANY))))
+                                        .build()))))
                         .when(TimeCheck.time(provider.getOrThrow(ResourceKey.create(Registries.WORLD_CLOCK, WorldClocks.OVERWORLD.identifier())),
                                 IntRange.range(13000, 23000)).setPeriod(24000))
                         .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.CREAKING_HEART).setProperties(StatePropertiesPredicate.Builder.properties()
