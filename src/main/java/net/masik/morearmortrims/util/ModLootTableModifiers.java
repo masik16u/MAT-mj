@@ -5,33 +5,23 @@ import net.masik.morearmortrims.item.ModItems;
 import net.minecraft.advancements.predicates.*;
 import net.minecraft.advancements.predicates.entity.EntityPredicate;
 import net.minecraft.advancements.predicates.entity.EntityTypePredicate;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.core.component.DataComponentExactPredicate;
-import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.component.predicates.DataComponentPredicates;
 import net.minecraft.core.component.predicates.EnchantmentsPredicate;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.clock.WorldClock;
 import net.minecraft.world.clock.WorldClocks;
-import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.storage.loot.IntRange;
+import net.minecraft.world.level.storage.loot.IntRangePredicate;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
-import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
-import net.minecraft.world.level.storage.loot.entries.LootPoolSingletonContainer;
 import net.minecraft.world.level.storage.loot.predicates.*;
 
 import java.util.List;
@@ -127,8 +117,8 @@ public class ModLootTableModifiers {
                                                         provider.getOrThrow(ResourceKey.create(Registries.ENCHANTMENT, Enchantments.SILK_TOUCH.identifier())), MinMaxBounds.Ints.ANY))))
                                         .build()))))
                         .when(TimeCheck.time(provider.getOrThrow(ResourceKey.create(Registries.WORLD_CLOCK, WorldClocks.OVERWORLD.identifier())),
-                                IntRange.range(13000, 23000)).setPeriod(24000))
-                        .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(Blocks.CREAKING_HEART).setProperties(StatePropertiesPredicate.Builder.properties()
+                                IntRangePredicate.range(13000, 23000)).setPeriod(24000))
+                        .when(MatchBlock.blockMatches(provider.lookupOrThrow(Registries.BLOCK), Blocks.CREAKING_HEART, StatePropertiesPredicate.Builder.properties()
                                 .hasProperty(BlockStateProperties.NATURAL, true)));
                 builder.pool(lootPool.build());
             }

@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "more_armor_trims:witness_armor_trim_smithing_template"
+        "recipes": "more_armor_trims:witness_armor_trim_smithing_template"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
